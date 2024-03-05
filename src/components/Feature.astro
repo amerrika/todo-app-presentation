@@ -1,0 +1,30 @@
+---
+import "../sass/main.scss";
+const { title = "Don't forget title", iconName, IconHolderClassList, isFlex } = Astro.props;
+---
+
+<li class:list={["feature", { flex: isFlex }]}>
+  <div class="icon-holder" class:list={[IconHolderClassList]}>
+    <img src=`../icons/${iconName}` alt="" />
+  </div>
+  <div class="feature__content">
+    <h3 class="heading-3 mb-end-2">{title}</h3>
+    <slot />
+  </div>
+</li>
+
+<style lang="scss">
+  @use "../sass/abstracts/" as *;
+  .feature {
+    // if we add a prop "isFlex"
+    &.flex {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    &__content {
+      font-size: $fs-300;
+      line-height: 1.8;
+    }
+  }
+</style>

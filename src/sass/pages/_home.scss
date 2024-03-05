@@ -1,0 +1,10 @@
+@use "../abstracts/" as *;
+
+.overview {
+  ul {
+    padding-inline-start: 1.2rem;
+    li {
+      list-style-type: disc;
+    }
+  }
+}

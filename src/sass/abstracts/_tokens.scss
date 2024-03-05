@@ -1,0 +1,94 @@
+@use "typography" as *;
+@use "colors" as *;
+@use "sizes" as *;
+@use "shadows" as *;
+
+// BODY
+$body-txt-clr: $project-clr;
+$body-bg-clr: $project-bg;
+
+// LAYOUT
+$grid-gap: 5rem;
+
+// BUTTONS
+$button-ff: $ff-base;
+$button-fs: $fs-500;
+$button-fw: $fw-regular;
+$button-ls: 0;
+$button-tt: unset;
+$button-padding: 0.75em 2em;
+$button-default-bg: transparent;
+$button-border: 2px solid;
+$button-br: 1.5rem;
+// Primary
+$button-primary-bg: $neutral-900;
+$button-primary-clr: $neutral-100;
+$button-primary-border-clr: $neutral-900;
+// Outline
+$button-outline-bg: $neutral-100;
+$button-outline-clr: $neutral-900;
+$button-outline-border-clr: $neutral-900;
+// Inverted
+$button-inverted-bg: $neutral-100;
+$button-inverted-clr: $neutral-900;
+$button-inverted-border-clr: $neutral-100;
+// Muted
+$button-muted-padding: 0;
+$button-muted-bg: transparent;
+$button-muted-clr: $neutral-900;
+$button-muted-border-clr: transparent;
+
+// HEADINGS
+$heading-ff: $ff-accent;
+$heading-tt: unset;
+$heading-ls: 0;
+$heading-line-height: 1.1;
+$heading-clr-default: $project-heading;
+
+$heading-1-fs: $fs-h1;
+$heading-1-fw: $fw-bold;
+$heading-1-clr: $heading-clr-default;
+
+$heading-2-fs: $fs-h2;
+$heading-2-fw: $fw-bold;
+$heading-2-clr: $heading-clr-default;
+
+$heading-3-fs: $fs-h3;
+$heading-3-fw: $fw-medium;
+$heading-3-clr: $heading-clr-default;
+
+// FOOTER
+$footer-bg-clr: $neutral-100;
+$footer-clr: $neutral-700;
+$footer-fs: $fs-300;
+$footer-fw: $fw-regular;
+// link
+$footer-link-ff: $ff-base;
+$footer-link-clr: $neutral-700;
+$footer-link-ls: 0;
+$footer-link-fs: $fs-300;
+$footer-link-fw: $fw-regular;
+
+// HEADER
+$header-box-shadow: none;
+$header-bg-clr: $project-heading;
+$header-fs: $fs-500;
+$header-fw: $fw-regular;
+
+// NAVIGATION
+// link
+$navigation-link-ff: $ff-base;
+$navigation-link-clr: $neutral-900;
+$navigation-link-ls: 0;
+$navigation-link-fs: $fs-300;
+$navigation-link-fw: $fw-regular;
+$navigation-link-tt: none;
+// active link
+$navigation-link-active-fw: $fw-bold;
+
+// ICON HOLDER
+$icon-holder-bg-clr: #3353a2;
+$icon-holder-width: 4rem;
+$icon-holder-height: 4rem;
+$icon-holder-br: 10rem;
+$icon-holder-padding: 1rem;

@@ -1,0 +1,80 @@
+---
+// scss
+import "../sass/main.scss";
+// astro components
+import BaseLayout from "../layout/BaseLayout.astro";
+// Astro Image & screenshots
+import { Image } from "astro:assets";
+import screenShot1 from "../assets/images/screenshot-1.png";
+import screenShot2 from "../assets/images/screenshot-2.png";
+import screenShot3 from "../assets/images/screenshot-3.png";
+import screenShot4 from "../assets/images/screenshot-4.png";
+---
+
+<BaseLayout title="Home" url="Ovdje ide url stranice">
+  <div class="container">
+    <!-- Intro -->
+    <section>
+      <h1 class="heading-2 mb-start-4">
+        Web presentation for my Todo app solution
+      </h1>
+      <p class="pb-4 fs-500">
+        This is my first full-stack project. It is based on Frontend Mentor
+        Challenge - Todo app. I am building it as a local desktop web app so the
+        purpose of this simple website is to give an overview of this project,
+        provide a few screenshots and a guide how to run it on your machine. This project is not finished and I'm still working on it.
+      </p>
+      <p class="fs-500">Frontend is built with Vue.js 3 Options API, Vue router, SCSS and Axios</p>
+      <p class="fs-500">Backend with Node.js/Express, Mongoose and MongoDB</p>
+    </section>
+    <!-- Overview -->
+    <section class="overview">
+      <h2 class="heading-2 mb-4">Overview of the Challenge</h2>
+      <div class="even-columns">
+        <div>
+          <h3 class="txt-neutral-900 fw-500 txt-project-heading">
+            Frontend Mentor requirements:
+          </h3>
+
+          <ul class="fs-400">
+            <li>Add new todos to the list</li>
+            <li>Mark todos as complete</li>
+            <li>Delete todos from the list</li>
+            <li>Filter by all/active/complete todos</li>
+            <li>Clear all completed todos</li>
+            <li>See hover states for all interactive elements on the page</li>
+            <li>Bonus: Drag and drop to reorder items on the list</li>
+            <li>Bonus: Build this project as a full-stack application</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="txt-neutral-900 fw-500 txt-project-heading">Extra challenges of my own:</h3>
+
+          <ul class="fs-400">
+            <li>Having a sidebar with a option to minimize it</li>
+            <li>Have three pages to use Vue router: Tasks, Notes & Tips</li>
+            <li>Make task list printable</li>
+            <li>Open and update a single task from the list</li>
+            <li>Set task priority</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- Screenshots -->
+    <section>
+      <h2 class="heading-2 mb-4">Screenshots</h2>
+      <span class="fs-500">Homepage is currently redirected to display Tasks:</span>
+      <Image src={screenShot1} alt="" />
+      <span class="fs-500">Here we see the editor for a new task:</span>
+      <Image src={screenShot2} alt="" />
+      <span class="fs-500"
+        >Task Details is displayed when clicked on a single task from the list</span
+      >
+      <Image src={screenShot3} alt="" />
+      <span class="fs-500">Sidebar minimized:</span>
+      <Image src={screenShot4} alt="" />
+    </section>
+    <!-- Guide -->
+    <h2 class="heading-2 mb-4">How to run it on your machine</h2>
+  </div>
+</BaseLayout>

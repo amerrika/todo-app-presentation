@@ -1,0 +1,100 @@
+---
+import "../sass/main.scss";
+import Button from "./ui/Button.astro";
+const {emailKey} = Astro.props;
+
+// Styles for the form component are placed in sass/components/contact-form.scss //
+---
+<!-- www.formsubmit.co -->
+<!-- emailKey is the random-like string to replace the naked email address -->
+
+<form
+  action=`https://formsubmit.co/ajax/${emailKey}`
+  method="POST"
+  id="form"
+  class="needs-validation"
+  novalidate
+>
+  <!-- Full name -->
+  <input
+    type="text"
+    name="name"
+    placeholder="Vaše ime i prezime"
+    autocomplete="off"
+    required
+  />
+  <div class="empty-feedback invalid-feedback pb-1">
+    Upišite Vaše ime i prezime.
+  </div>
+  <!-- Email -->
+  <input
+    class="mb-start-3"
+    type="email"
+    name="email"
+    placeholder="Vaša email adresa"
+    autocomplete="off"
+    required
+  />
+  <div class="empty-feedback pb-1">Upišite email adresu.</div>
+  <div class="invalid-feedback pb-1">Upišite validnu email adresu.</div>
+  <!-- Message -->
+  <textarea
+    class="mb-start-3"
+    name="message"
+    placeholder="Vaša poruka"
+    autocomplete="off"
+    required></textarea>
+  <div class="empty-feedback invalid-feedback pb-1">Upišite Vašu poruku.</div>
+  <Button className="mb-start-3" type="submit">Pošaljite poruku</Button>
+  <div id="result" class="fs-300 txt-neutral-900 txt-center"></div>
+</form>
+
+<script is:inline>
+const form = document.getElementById("form");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  form.classList.add("was-validated");
+  if (!form.checkValidity()) {
+    form.querySelectorAll(":invalid")[0].focus();
+    return;
+  }
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+  result.innerHTML = "Slanje poruke u toku...";
+  fetch(`https://formsubmit.co/ajax/${emailKey}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: json,
+  })
+    .then(async (response) => {
+      const object = await response.json();
+      if (response.status == 200) {
+        result.classList.add("txt-alert-green");
+        object.message = "Poruka je uspješno poslana."
+        result.innerHTML = object.message;
+      } else {
+        console.log(response);
+        result.classList.add("txt-alert-red");
+        result.innerHTML = object.message;
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      result.innerHTML = "Pojavila se greška prilikom slanja!";
+    })
+    .then(() => {
+      form.reset();
+      form.classList.remove("was-validated");
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 5000);
+    });
+});
+</script>
